@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+
+    <!--Icon da barra de separadores-->
+    <link rel="icon" href="resources/favicon.ico" type="icon">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--Invocação do CSS-->
+    <link href="resources/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <center>
+        <img src="resources/4.png" alt="Imagem não encontrada!" class="img">
+        <br>
+        <a href="TicTacToe.html"><button type="button" class="buttonJogar">JOGAR</button></a>
+        <br>
+        <button type="button" class="buttonComoJogar" data-toggle="modal" data-target="#myModal">COMO JOGAR</button>
+    </center>
+
+    <!-- Modal Como Jogar-->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Como Jogar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <center>
+                            <div class="col-md-6">
+                                <br>
+                                <p>Jogue uma partida do clássico jogo da velha contra um amigo, onde o objetivo é criar uma
+                                    linha horizontal, vertical ou diagonal com a sua cor para vencer a partida.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="resources/comojogar.png" alt="Imagem não encontrada!" class="comojogar">
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
