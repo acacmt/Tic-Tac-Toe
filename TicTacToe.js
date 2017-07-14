@@ -47,6 +47,14 @@ window.onload = function init() {
     //    renderer.render(scene, camera);
     //});
 
+    //PLANE
+    var geometry = new THREE.BoxGeometry(25, 0, 25);
+    var texture = new THREE.TextureLoader().load('./resources/texturademadeira.jpg');
+    var material = new THREE.MeshBasicMaterial({ map:texture});
+    var plane = new THREE.Mesh(geometry, material);
+    plane.position.y = -3;
+    scene.add(plane);
+
     //SHOW CANVAS
     document.getElementById('canvas-container').appendChild(renderer.domElement);
 
@@ -77,7 +85,9 @@ function addCube(x, z, cubeNumber) {
     var cubeMaterial = new THREE.MeshDepthMaterial();
 
     var colorMaterial = new THREE.MeshBasicMaterial({
-        color: 0x008080
+        color:0xd56175,
+        transparent: 0.5,
+        blending: THREE.MultiplyBlending
     });
 
     //2nd - Blend multiple materials
@@ -119,13 +129,13 @@ function onClick(e) {
             flag = true;
             playerA.push(intersects[0].object.number);
             intersects[0].object.changeColor = false;
-            intersects[0].object.material.color.set(0x800000);
+            intersects[0].object.material.color.set(0x0051ba);
             //console.log(intersects);
         } else {
             flag = false;
             playerB.push(intersects[0].object.number);
             intersects[0].object.changeColor = false
-            intersects[0].object.material.color.set(0x000080);
+            intersects[0].object.material.color.set(0x009e60 );
             //console.log(intersects);
         }
         checkWin();
@@ -141,11 +151,11 @@ function checkWin() {
     var winMessage = "";
     if (flag) {
         playerCubes = playerA;
-        winMessage = "JOGADOR VERMELHO GANHOU!";
+        winMessage = "JOGADOR AZUL GANHOU!";
     }
     else {
         playerCubes = playerB;
-        winMessage = "JOGADOR AZUL GANHOU!";
+        winMessage = "JOGADOR VERDE GANHOU!";
     }
     for (var i = 0; i < win.length; i++) {
         var count = 0;
@@ -176,8 +186,8 @@ function restart() {
     flag = false;
     gameWin = false;
     document.getElementById("text").innerHTML = "";
-    for (var i = 1; i < scene.children.length; i++) {
-        scene.children[i].material.color.set(0x008080);
+    for (var i = 2; i < scene.children.length; i++) {
+        scene.children[i].material.color.set(0xd56175); 
         scene.children[i].changeColor = true;
     }
     window.addEventListener('mousedown', onClick, false);
