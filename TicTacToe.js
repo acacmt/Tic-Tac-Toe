@@ -57,6 +57,7 @@ window.onload = function init() {
 
     //SHOW CANVAS
     document.getElementById('canvas-container').appendChild(renderer.domElement);
+    document.getElementById("text"). innerHTML = "Vez do jogador Azul";
 
     var render = function () {
         renderer.render(scene, camera);
@@ -126,12 +127,14 @@ function onClick(e) {
     if (intersects[0].object.changeColor == true) {
         //console.log(intersects);
         if (!flag) {
+            document.getElementById("text"). innerHTML = "Vez do jogador Verde";
             flag = true;
             playerA.push(intersects[0].object.number);
             intersects[0].object.changeColor = false;
             intersects[0].object.material.color.set(0x0051ba);
             //console.log(intersects);
         } else {
+            document.getElementById("text"). innerHTML = "Vez do jogador Azul";
             flag = false;
             playerB.push(intersects[0].object.number);
             intersects[0].object.changeColor = false
@@ -186,6 +189,7 @@ function restart() {
     flag = false;
     gameWin = false;
     document.getElementById("text").innerHTML = "";
+    document.getElementById("text"). innerHTML = "Vez do jogador Azul";
     for (var i = 2; i < scene.children.length; i++) {
         scene.children[i].material.color.set(0xd56175); 
         scene.children[i].changeColor = true;
